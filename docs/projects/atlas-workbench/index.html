@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="vi"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Atlas Workbench | Nguyen Duc Tien</title><meta name="description" content="A multi-page portfolio system with a CMS-like workflow for updates."><link rel="canonical" href="https://tien190504.github.io/NguyenDucTien/projects/atlas-workbench/"><meta property="og:type" content="website"><meta property="og:title" content="Atlas Workbench | Nguyen Duc Tien"><meta property="og:description" content="A multi-page portfolio system with a CMS-like workflow for updates."><meta property="og:image" content="https://tien190504.github.io/NguyenDucTien/NguyenDucTien/images/projects/atlas-detail.svg"><meta property="og:url" content="https://tien190504.github.io/NguyenDucTien/projects/atlas-workbench/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Atlas Workbench | Nguyen Duc Tien"><meta name="twitter:description" content="A multi-page portfolio system with a CMS-like workflow for updates."><meta name="twitter:image" content="https://tien190504.github.io/NguyenDucTien/NguyenDucTien/images/projects/atlas-detail.svg"><link rel="icon" type="image/svg+xml" href="/NguyenDucTien/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><script>
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const useDark = stored ? stored === "dark" : prefersDark;
+      document.documentElement.classList.toggle("dark", useDark);
+    </script><link rel="stylesheet" href="/NguyenDucTien/_astro/about.BZhacQU5.css"></head> <body> <header class="sticky top-0 z-40 border-b border-white/10 bg-white/70 backdrop-blur dark:bg-ink-900/80"> <div class="container-prose flex items-center justify-between py-4"> <a href="/NguyenDucTien/" class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+NDT<span class="text-accent-500">.</span> </a> <nav class="hidden items-center gap-6 md:flex"> <a class="text-sm font-semibold text-slate-700 transition hover:text-accent-600 dark:text-slate-200" href="/NguyenDucTien/"> Home </a><a class="text-sm font-semibold text-slate-700 transition hover:text-accent-600 dark:text-slate-200" href="/NguyenDucTien/projects/"> Projects </a><a class="text-sm font-semibold text-slate-700 transition hover:text-accent-600 dark:text-slate-200" href="/NguyenDucTien/blog/"> Blog </a><a class="text-sm font-semibold text-slate-700 transition hover:text-accent-600 dark:text-slate-200" href="/NguyenDucTien/about/"> About </a><a class="text-sm font-semibold text-slate-700 transition hover:text-accent-600 dark:text-slate-200" href="/NguyenDucTien/contact/"> Contact </a> <button class="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/70 px-3 py-2 text-xs font-semibold text-slate-700 transition hover:border-accent-500/50 hover:text-accent-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-200" type="button" data-theme-toggle aria-pressed="false"> <span aria-hidden="true">O</span> <span>Theme</span> </button> <script>
+  const toggles = document.querySelectorAll("[data-theme-toggle]");
+
+  const applyTheme = (theme) => {
+    const isDark = theme === "dark";
+    document.documentElement.classList.toggle("dark", isDark);
+    toggles.forEach((toggle) => toggle.setAttribute("aria-pressed", String(isDark)));
+  };
+
+  const stored = localStorage.getItem("theme");
+  if (stored) {
+    applyTheme(stored);
+  }
+
+  toggles.forEach((toggle) => {
+    if (toggle.dataset.bound === "true") return;
+    toggle.dataset.bound = "true";
+    toggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      const next = isDark ? "light" : "dark";
+      localStorage.setItem("theme", next);
+      applyTheme(next);
+    });
+  });
+</script> </nav> <div class="flex items-center gap-3 md:hidden"> <button class="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/70 px-3 py-2 text-xs font-semibold text-slate-700 transition hover:border-accent-500/50 hover:text-accent-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-200" type="button" data-theme-toggle aria-pressed="false"> <span aria-hidden="true">O</span> <span>Theme</span> </button> <script>
+  const toggles = document.querySelectorAll("[data-theme-toggle]");
+
+  const applyTheme = (theme) => {
+    const isDark = theme === "dark";
+    document.documentElement.classList.toggle("dark", isDark);
+    toggles.forEach((toggle) => toggle.setAttribute("aria-pressed", String(isDark)));
+  };
+
+  const stored = localStorage.getItem("theme");
+  if (stored) {
+    applyTheme(stored);
+  }
+
+  toggles.forEach((toggle) => {
+    if (toggle.dataset.bound === "true") return;
+    toggle.dataset.bound = "true";
+    toggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      const next = isDark ? "light" : "dark";
+      localStorage.setItem("theme", next);
+      applyTheme(next);
+    });
+  });
+</script> <button type="button" class="rounded-full border border-slate-200/70 bg-white/70 px-3 py-2 text-xs font-semibold text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-slate-200" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav">
+Menu
+</button> </div> </div> <div class="hidden border-t border-white/10 bg-white/80 px-6 py-4 dark:bg-ink-900/90" id="mobile-nav" data-mobile-nav> <div class="flex flex-col gap-3"> <a class="text-sm font-semibold text-slate-700 dark:text-slate-200" href="/NguyenDucTien/"> Home </a><a class="text-sm font-semibold text-slate-700 dark:text-slate-200" href="/NguyenDucTien/projects/"> Projects </a><a class="text-sm font-semibold text-slate-700 dark:text-slate-200" href="/NguyenDucTien/blog/"> Blog </a><a class="text-sm font-semibold text-slate-700 dark:text-slate-200" href="/NguyenDucTien/about/"> About </a><a class="text-sm font-semibold text-slate-700 dark:text-slate-200" href="/NguyenDucTien/contact/"> Contact </a> </div> </div> </header> <script>
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const menu = document.querySelector("[data-mobile-nav]");
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      menu.classList.toggle("hidden", isOpen);
+    });
+  }
+</script> <main>  <section class="section"> <div class="container-prose space-y-10"> <div class="space-y-4"> <a class="text-sm font-semibold text-accent-600" href="/NguyenDucTien/projects/">
+&larr; Back to projects
+</a> <h1 class="text-3xl font-semibold text-slate-900 dark:text-white">Atlas Workbench</h1> <p class="text-lg text-slate-600 dark:text-slate-300">A multi-page portfolio system with a CMS-like workflow for updates.</p> <div class="flex flex-wrap gap-2"> <span class="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-200"> Astro </span><span class="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-200"> TailwindCSS </span><span class="rounded-full border border-slate-200/70 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-200"> TypeScript </span> </div> </div> <div class="grid gap-6 md:grid-cols-[1.2fr_0.8fr]"> <div class="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/90"> <img src="/NguyenDucTien/images/projects/atlas-detail.svg" alt="Atlas Workbench detail preview" class="h-full w-full object-cover"> </div> <div class="card flex flex-col gap-4 p-6"> <div> <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Role</p> <p class="text-lg font-semibold text-slate-900 dark:text-white">Frontend Engineer</p> </div> <div> <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Timeline</p> <p class="text-lg font-semibold text-slate-900 dark:text-white">2024.06 - 2024.09</p> </div> <div> <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Links</p> <div class="mt-2 flex flex-col gap-2 text-sm"> <a class="link-underline" href="https://example.com">Live demo</a> <a class="link-underline" href="https://github.com/username/atlas-workbench">GitHub repository</a> </div> </div> </div> </div> <div class="grid gap-6 md:grid-cols-2"> <section class="card space-y-3 p-6"> <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Problem</h2> <p class="text-slate-600 dark:text-slate-300">
+Teams needed a repeatable way to publish multi-page project stories that stayed fast on GitHub Pages.
+</p> </section> <section class="card space-y-3 p-6"> <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Solution</h2> <p class="text-slate-600 dark:text-slate-300">
+Built a static-first workflow with structured data, reusable layouts, and performance-focused UI.
+</p> </section> <section class="card space-y-3 p-6"> <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Tech</h2> <ul class="space-y-2 text-slate-600 dark:text-slate-300"> <li>Astro</li><li>TailwindCSS</li><li>TypeScript</li> </ul> </section> <section class="card space-y-3 p-6"> <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Results</h2> <ul class="space-y-2 text-slate-600 dark:text-slate-300"> <li>Built a content collection pipeline for projects and blog posts.</li><li>Optimized Lighthouse scores with static rendering and image hygiene.</li><li>Designed a reusable card system for multiple page templates.</li> </ul> </section> </div> <section class="card space-y-3 p-6"> <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Lessons</h2> <p class="text-slate-600 dark:text-slate-300">
+A solid content model and clear page structure makes future updates effortless. Performance wins come from
+          discipline in layout, assets, and routing.
+</p> </section> </div> </section>  </main> <footer class="border-t border-white/10 bg-white/70 py-10 text-sm text-slate-600 backdrop-blur dark:bg-ink-900/80 dark:text-slate-300"> <div class="container-prose flex flex-col gap-6 md:flex-row md:items-center md:justify-between"> <div> <p class="font-semibold text-slate-900 dark:text-white">Nguyễn Đức Tiên</p> <p>AI student seeking internship opportunities, focused on learning and building practical AI systems.</p> </div> <div class="flex flex-wrap items-center gap-4"> <a class="link-underline text-slate-700 dark:text-slate-200" href="https://github.com/tien190504"> GitHub </a><a class="link-underline text-slate-700 dark:text-slate-200" href="https://www.linkedin.com/in/nguy%E1%BB%85n-%C4%91%E1%BB%A9c-ti%E1%BA%BFn-63a37a308/"> LinkedIn </a><a class="link-underline text-slate-700 dark:text-slate-200" href="tiennguyen4118@gmail.com"> Email </a> <a class="link-underline text-slate-700 dark:text-slate-200" href="/NguyenDucTien/contact/">
+Contact
+</a> </div> </div> </footer> <script>
+  window.__analytics = {
+    provider: "placeholder",
+    siteId: "ANALYTICS_PLACEHOLDER",
+    ready: false
+  };
+  // Replace this snippet with your real analytics provider when ready.
+</script> </body></html>

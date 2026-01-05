@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tien190504.github.io/NguyenDucTien/sitemap.xml
