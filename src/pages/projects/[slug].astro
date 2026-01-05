@@ -1,0 +1,111 @@
+﻿---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Tag from "../../components/Tag.astro";
+import projects from "../../data/projects.json";
+
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const stripLeadingSlash = (value) => {
+  let result = value;
+  while (result.startsWith("/")) result = result.slice(1);
+  return result;
+};
+const heroImage = project.images?.[1] || project.images?.[0];
+const heroUrl = heroImage ? `${base}${stripLeadingSlash(heroImage)}` : `${base}og-default.svg`;
+---
+
+<BaseLayout
+  title={project.title}
+  description={project.summary}
+  ogImage={heroUrl}
+>
+  <section class="section">
+    <div class="container-prose space-y-10">
+      <div class="space-y-4">
+        <a class="text-sm font-semibold text-accent-600" href={`${base}projects/`}>
+          &larr; Back to projects
+        </a>
+        <h1 class="text-3xl font-semibold text-slate-900 dark:text-white">{project.title}</h1>
+        <p class="text-lg text-slate-600 dark:text-slate-300">{project.summary}</p>
+        <div class="flex flex-wrap gap-2">
+          {project.techStack.map((tech) => (
+            <Tag label={tech} />
+          ))}
+        </div>
+      </div>
+      <div class="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
+        <div class="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/90">
+          <img
+            src={heroUrl}
+            alt={`${project.title} detail preview`}
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div class="card flex flex-col gap-4 p-6">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Role</p>
+            <p class="text-lg font-semibold text-slate-900 dark:text-white">{project.role}</p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Timeline</p>
+            <p class="text-lg font-semibold text-slate-900 dark:text-white">{project.timeframe}</p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Links</p>
+            <div class="mt-2 flex flex-col gap-2 text-sm">
+              <a class="link-underline" href={project.links.demo}>Live demo</a>
+              <a class="link-underline" href={project.links.github}>GitHub repository</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <section class="card space-y-3 p-6">
+          <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Problem</h2>
+          <p class="text-slate-600 dark:text-slate-300">
+            Teams needed a repeatable way to publish multi-page project stories that stayed fast on GitHub Pages.
+          </p>
+        </section>
+        <section class="card space-y-3 p-6">
+          <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Solution</h2>
+          <p class="text-slate-600 dark:text-slate-300">
+            Built a static-first workflow with structured data, reusable layouts, and performance-focused UI.
+          </p>
+        </section>
+        <section class="card space-y-3 p-6">
+          <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Tech</h2>
+          <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+            {project.techStack.map((tech) => (
+              <li>{tech}</li>
+            ))}
+          </ul>
+        </section>
+        <section class="card space-y-3 p-6">
+          <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Results</h2>
+          <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+            {project.highlights.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
+      <section class="card space-y-3 p-6">
+        <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Lessons</h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          A solid content model and clear page structure makes future updates effortless. Performance wins come from
+          discipline in layout, assets, and routing.
+        </p>
+      </section>
+    </div>
+  </section>
+</BaseLayout>
+

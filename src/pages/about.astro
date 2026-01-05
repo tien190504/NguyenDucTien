@@ -1,0 +1,68 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Tag from "../components/Tag.astro";
+
+const skills = [
+  "Astro",
+  "Next.js",
+  "TypeScript",
+  "TailwindCSS",
+  "SEO",
+  "GitHub Actions"
+];
+
+const timeline = [
+  {
+    year: "2025",
+    title: "Frontend Engineer",
+    detail: "Focus on multi-page performance and SEO-driven content systems."
+  },
+  {
+    year: "2024",
+    title: "UI Engineer",
+    detail: "Built reusable component libraries and design tokens."
+  },
+  {
+    year: "2023",
+    title: "Product Designer",
+    detail: "Shipped product landing pages and early-stage MVPs."
+  }
+];
+---
+
+<BaseLayout title="About" description="Background, skills, and timeline.">
+  <section class="section">
+    <div class="container-prose space-y-10">
+      <div class="space-y-3">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">About</p>
+        <h1 class="text-3xl font-semibold text-slate-900 dark:text-white">Hi, I am Nguyen Duc Tien</h1>
+        <p class="text-lg text-slate-600 dark:text-slate-300">
+          I am an AI student actively seeking an internship opportunity, with a strong interest in applied machine learning and software engineering.
+        </p>
+      </div>
+      <section class="card space-y-4 p-6">
+        <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Skills</h2>
+        <div class="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <Tag label={skill} />
+          ))}
+        </div>
+      </section>
+      <section class="card space-y-4 p-6">
+        <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Timeline</h2>
+        <div class="space-y-4">
+          {timeline.map((item) => (
+            <div class="flex items-start gap-4 border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
+              <div class="text-sm font-semibold text-accent-600">{item.year}</div>
+              <div>
+                <p class="font-semibold text-slate-900 dark:text-white">{item.title}</p>
+                <p class="text-sm text-slate-600 dark:text-slate-300">{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </section>
+</BaseLayout>
+

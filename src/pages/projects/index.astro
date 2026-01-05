@@ -1,0 +1,82 @@
+﻿---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import projects from "../../data/projects.json";
+
+const base = import.meta.env.BASE_URL;
+const techFilters = Array.from(
+  new Set(projects.flatMap((project) => project.techStack))
+).sort();
+---
+
+<BaseLayout
+  title="Projects"
+  description="Multi-page case studies with filters by tech stack and project roles."
+>
+  <section class="section">
+    <div class="container-prose space-y-6">
+      <div class="space-y-3">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
+          Case Studies
+        </p>
+        <h1 class="text-3xl font-semibold text-slate-900 dark:text-white">Projects & Impact</h1>
+        <p class="text-slate-600 dark:text-slate-300">
+          Filter projects by the tech stack to explore relevant work samples.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button
+          class="rounded-full border border-slate-200/70 bg-white/70 px-4 py-2 text-xs font-semibold text-slate-700 transition hover:border-accent-500/50 hover:text-accent-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
+          data-filter="all"
+        >
+          All
+        </button>
+        {techFilters.map((tech) => (
+          <button
+            class="rounded-full border border-slate-200/70 bg-white/70 px-4 py-2 text-xs font-semibold text-slate-700 transition hover:border-accent-500/50 hover:text-accent-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
+            data-filter={tech.toLowerCase()}
+          >
+            {tech}
+          </button>
+        ))}
+      </div>
+      <div class="grid gap-6 md:grid-cols-2" data-project-grid>
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+      <p class="text-sm text-slate-500 dark:text-slate-300">
+        Want to see more? <a class="link-underline" href={`${base}contact/`}>Get in touch</a> for the full catalog.
+      </p>
+    </div>
+  </section>
+
+  <script is:inline>
+    const buttons = document.querySelectorAll("[data-filter]");
+    const cards = document.querySelectorAll("[data-techs]");
+
+    const setActive = (target) => {
+      buttons.forEach((btn) => {
+        btn.classList.toggle("bg-accent-500", btn === target);
+        btn.classList.toggle("text-white", btn === target);
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
+        setActive(button);
+        cards.forEach((card) => {
+          const techs = (card.getAttribute("data-techs") || "").split(",");
+          const show = filter === "all" || techs.includes(filter);
+          card.classList.toggle("hidden", !show);
+        });
+      });
+    });
+
+    if (buttons[0]) {
+      setActive(buttons[0]);
+    }
+  </script>
+</BaseLayout>
+

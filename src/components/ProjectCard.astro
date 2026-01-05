@@ -1,0 +1,43 @@
+﻿---
+import Tag from "./Tag.astro";
+
+const { project } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const techs = project.techStack || [];
+const techString = techs.map((tech) => tech.toLowerCase()).join(",");
+const stripLeadingSlash = (value) => {
+  let result = value;
+  while (result.startsWith("/")) result = result.slice(1);
+  return result;
+};
+const cover = project.images?.[0]
+  ? `${base}${stripLeadingSlash(project.images[0])}`
+  : `${base}og-default.svg`;
+---
+
+<article class="card flex h-full flex-col gap-4 p-6" data-techs={techString}>
+  <div class="overflow-hidden rounded-xl border border-white/10 bg-slate-900/80">
+    <img
+      src={cover}
+      alt={`${project.title} preview`}
+      class="h-44 w-full object-cover"
+      loading="lazy"
+    />
+  </div>
+  <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-300">
+    <span>{project.role}</span>
+    <span>{project.timeframe}</span>
+  </div>
+  <h3 class="text-xl font-semibold text-slate-900 dark:text-white">{project.title}</h3>
+  <p class="text-sm text-slate-600 dark:text-slate-300">{project.summary}</p>
+  <div class="flex flex-wrap gap-2">
+    {techs.map((tech) => (
+      <Tag label={tech} />
+    ))}
+  </div>
+  <p class="text-sm text-slate-500 dark:text-slate-300">{project.highlights?.[0]}</p>
+  <a class="mt-auto text-sm font-semibold text-accent-600" href={`${base}projects/${project.slug}/`}>
+    View case study ->
+  </a>
+</article>
+

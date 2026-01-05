@@ -1,0 +1,82 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const social = [
+  { label: "GitHub", href: "https://github.com/tien190504" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/nguy%E1%BB%85n-%C4%91%E1%BB%A9c-ti%E1%BA%BFn-63a37a308/" },
+  { label: "Email", href: "mailto:tiennguyen4118@gmail.com" }
+];
+
+---
+
+<BaseLayout title="Contact" description="Send a message or reach out on social.">
+  <section class="section">
+    <div class="container-prose grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
+      <div class="space-y-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Contact</p>
+        <h1 class="text-3xl font-semibold text-slate-900 dark:text-white">Let us build something together</h1>
+        <p class="text-slate-600 dark:text-slate-300">
+          Use the form or email directly. I reply within 24-48 hours.
+        </p>
+        <form
+  class="card flex flex-col gap-4 p-6"
+  action="https://formspree.io/f/xeeonyzj"
+  method="POST"
+>
+
+          <label class="text-sm font-semibold text-slate-700 dark:text-slate-200">
+            Name
+            <input
+              class="mt-2 w-full rounded-xl border border-slate-200/70 bg-white/70 px-4 py-3 text-sm text-slate-700 focus:border-accent-500 focus:outline-none dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+            />
+          </label>
+          <label class="text-sm font-semibold text-slate-700 dark:text-slate-200">
+            Email
+            <input
+              class="mt-2 w-full rounded-xl border border-slate-200/70 bg-white/70 px-4 py-3 text-sm text-slate-700 focus:border-accent-500 focus:outline-none dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </label>
+          <label class="text-sm font-semibold text-slate-700 dark:text-slate-200">
+            Message
+            <textarea
+              class="mt-2 min-h-[140px] w-full rounded-xl border border-slate-200/70 bg-white/70 px-4 py-3 text-sm text-slate-700 focus:border-accent-500 focus:outline-none dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
+              name="message"
+              placeholder="Tell me about your project"
+              required
+            ></textarea>
+          </label>
+          <button
+            class="rounded-full bg-accent-500 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-accent-600"
+            type="submit"
+          >
+            Send via email
+          </button>
+        </form>
+      </div>
+      <div class="space-y-4">
+        <div class="card space-y-4 p-6">
+          <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Social links</h2>
+          <div class="flex flex-col gap-3 text-sm">
+            {social.map((item) => (
+              <a class="link-underline" href={item.href}>{item.label}</a>
+            ))}
+          </div>
+        </div>
+        <div class="card space-y-2 p-6 text-sm text-slate-600 dark:text-slate-300">
+          <p class="font-semibold text-slate-900 dark:text-white">Availability</p>
+          <p>Open to freelance and full-time roles.</p>
+          <p>Timezone: GMT+7</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

@@ -1,0 +1,123 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Tag from "../components/Tag.astro";
+import projects from "../data/projects.json";
+import { getCollection } from "astro:content";
+
+const base = import.meta.env.BASE_URL;
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const featuredProjects = projects.slice(0, 2);
+const latestPosts = posts.slice(0, 2);
+---
+
+<BaseLayout
+  <BaseLayout
+  title="Nguyễn Đức Tiên | AI Engineer"
+
+  description="Minimal, professional portfolio showcasing multi-page projects, case studies, and SEO-ready content."
+>
+  <section class="section">
+    <div class="container-prose grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
+      <div class="space-y-6">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
+          Portfolio 2025
+        </p>
+        <h1 class="text-4xl font-semibold">
+  AI student seeking internship opportunities in machine learning and applied AI.
+</h1>
+
+        <p class="text-lg text-slate-600 dark:text-slate-300">
+          I build modern websites with clean architecture, content collections, and performance-first UI that scale as you grow.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            class="rounded-full bg-accent-500 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-accent-600"
+            href={`${base}projects/`}
+          >
+            View projects
+          </a>
+          <a
+            class="rounded-full border border-slate-200/70 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-accent-500/50 hover:text-accent-600 dark:border-white/10 dark:text-slate-200"
+            href={`${base}contact/`}
+          >
+            Let us talk
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {[
+            "Astro",
+            "Next.js",
+            "SEO",
+            "Design Systems",
+            "GitHub Pages"
+          ].map((item) => (
+            <Tag label={item} />
+          ))}
+        </div>
+      </div>
+      <div class="card p-6">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Focus</p>
+        <div class="mt-6 space-y-4">
+          <div class="rounded-2xl border border-white/10 bg-slate-900/90 p-4 text-white">
+            <p class="text-sm text-slate-300">Currently shipping</p>
+            <p class="text-lg font-semibold">Multi-page portfolio platform</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200/70 bg-white/80 p-4 text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+            <p class="text-sm text-slate-500 dark:text-slate-300">Open for</p>
+            <p class="text-lg font-semibold">Frontend + UI engineering roles</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-prose space-y-8">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-semibold text-slate-900 dark:text-white">Featured Projects</h2>
+        <a class="text-sm font-semibold text-accent-600" href={`${base}projects/`}>Browse all -></a>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {featuredProjects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-prose space-y-8">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-semibold text-slate-900 dark:text-white">Latest Writing</h2>
+        <a class="text-sm font-semibold text-accent-600" href={`${base}blog/`}>All posts -></a>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {latestPosts.map((post) => (
+          <article class="card flex h-full flex-col gap-4 p-6">
+            <div class="text-xs text-slate-500 dark:text-slate-300">
+              {post.data.date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric"
+              })}
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white">{post.data.title}</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">{post.data.description}</p>
+            <div class="mt-auto flex flex-wrap gap-2">
+              {post.data.tags.map((tag) => (
+                <Tag label={tag} />
+              ))}
+            </div>
+            <a class="text-sm font-semibold text-accent-600" href={`${base}blog/${post.slug}/`}>
+              Read article ->
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

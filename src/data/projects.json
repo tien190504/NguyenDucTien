@@ -1,0 +1,39 @@
+﻿[
+  {
+    "title": "Atlas Workbench",
+    "slug": "atlas-workbench",
+    "summary": "A multi-page portfolio system with a CMS-like workflow for updates.",
+    "role": "Frontend Engineer",
+    "timeframe": "2024.06 - 2024.09",
+    "techStack": ["Astro", "TailwindCSS", "TypeScript"],
+    "highlights": [
+      "Built a content collection pipeline for projects and blog posts.",
+      "Optimized Lighthouse scores with static rendering and image hygiene.",
+      "Designed a reusable card system for multiple page templates."
+    ],
+    "links": {
+      "demo": "https://example.com",
+      "github": "https://github.com/username/atlas-workbench"
+    },
+    "images": ["images/projects/atlas-hero.svg", "images/projects/atlas-detail.svg"]
+  },
+  {
+    "title": "Signal Labs",
+    "slug": "signal-labs",
+    "summary": "A data-heavy product landing that explains analytics workflows.",
+    "role": "UI Engineer",
+    "timeframe": "2024.10 - 2024.12",
+    "techStack": ["Astro", "TailwindCSS", "Charts", "SEO"],
+    "highlights": [
+      "Implemented filterable project cards with lightweight client scripts.",
+      "Created a sectioned case study layout to tell the project story.",
+      "Built a dark mode experience aligned with the brand palette."
+    ],
+    "links": {
+      "demo": "https://example.com",
+      "github": "https://github.com/username/signal-labs"
+    },
+    "images": ["images/projects/signal-hero.svg", "images/projects/signal-detail.svg"]
+  }
+]
+

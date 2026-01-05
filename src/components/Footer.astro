@@ -1,0 +1,29 @@
+﻿---
+const base = import.meta.env.BASE_URL;
+const social = [
+  { label: "GitHub", href: "https://github.com/tien190504" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/nguy%E1%BB%85n-%C4%91%E1%BB%A9c-ti%E1%BA%BFn-63a37a308/" },
+  { label: "Email", href: "tiennguyen4118@gmail.com" }
+];
+---
+
+<footer class="border-t border-white/10 bg-white/70 py-10 text-sm text-slate-600 backdrop-blur dark:bg-ink-900/80 dark:text-slate-300">
+  <div class="container-prose flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <div>
+      <p class="font-semibold text-slate-900 dark:text-white">Nguyễn Đức Tiên</p>
+<p>AI student seeking internship opportunities, focused on learning and building practical AI systems.</p>
+
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      {social.map((item) => (
+        <a class="link-underline text-slate-700 dark:text-slate-200" href={item.href}>
+          {item.label}
+        </a>
+      ))}
+      <a class="link-underline text-slate-700 dark:text-slate-200" href={`${base}contact/`}>
+        Contact
+      </a>
+    </div>
+  </div>
+</footer>
+
